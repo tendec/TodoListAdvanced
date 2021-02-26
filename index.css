@@ -1,0 +1,86 @@
+body {
+    text-align: center;
+}
+
+#container {
+    margin: 0 auto;
+    width: 600px;
+}
+
+#title {
+    padding: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 2px 2px cyan;
+}
+
+label {
+    display: block;
+    text-align: left;
+    padding: 5px;
+}
+
+.user-info {
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+}
+
+.user-name {
+    margin: 5px;
+    padding: 5px;
+    width: 230px;
+}
+
+.user-info-password {
+    position: relative;
+}
+
+.user-password {
+    margin: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 230px;
+}
+
+.invalid {
+    border: 1px solid red;
+    background-color: lightcoral;
+}
+
+input[type="submit"] {
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fa-eye {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+
+.fa-eye-slash {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+
+.eyecfpass {
+    position: absolute;
+    right: 230px;
+    top: 290px;
+}
+
+.btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#user-cards {
+    display: none;
+}

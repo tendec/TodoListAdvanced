@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/59ee33d1b3.js" crossorigin="anonymous"></script>
+    <title>Todo List Advanced</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title">
+            TODO LIST
+        </div>
+        <div id="login">
+            <div class="user-info">
+                <div id="user-info-name">
+                    <label for="user-name">User Name:</label>
+                    <input type="text" class="user-name" required>
+                </div>
+                <div class="user-info-password">
+                    <label for="user-password">Password:</label>
+                    <input type="password" class="user-password" minlength="8" required>
+                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-eye-slash"></i>
+                </div>
+                <input type="submit" value="Log In" id="btn-login">
+                <input type="submit" value="Register" id="btn-register">
+            </div>
+        </div>
+        <div id="register">
+            <div class="user-info">
+                <div id="user-info-name">
+                    <label for="user-name">User Name:</label>
+                    <input type="text" class="user-name" id="username-register" required autocomplete="off" onkeyup="checkUserName()">
+                </div>
+                <div class="user-info-password">
+                    <label for="user-password">Password:</label>
+                    <input type="password" class="user-password" id="password-register" minlength="8" required>
+                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-eye-slash"></i>
+                </div>
+                <div class="user-info-confirm_password">
+                    <label for="user-password">Confirm Password:</label>
+                    <input type="password" class="user-password" id="cfpassword-register" minlength="8" required>
+                    <i class="fas fa-eye eyecfpass"></i>
+                    <i class="fas fa-eye-slash eyecfpass"></i>
+                </div>
+                <input type="submit" value="Back" id="btn-back-register">
+                <input type="submit" value="Submit" id="btn-submit-register">
+            </div>
+        </div>
+        <div id="main">
+            <button id="btn-addCard" class="btn"><i class="fas fa-plus"></i></button>
+            <div id="user-cards-title">
+                TITLE
+            </div>
+            <div id="user-cards-todos">
+                <li>TODO1</li>
+                <li>TODO2</li>
+                <li>TODO3</li>
+            </div>
+            <input type="submit" value="Log Out" id="btn-logout">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="dataManager.js"></script>
+    <script type="text/javascript" src="AuthenticationManager.js"></script>
+    <script type="text/javascript" src="UIManager.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+
+</html>
