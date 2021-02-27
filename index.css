@@ -81,6 +81,13 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-#user-cards {
-    display: none;
+.cards {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+#btn-logout {
+    position: relative;
+    top: 70px;
 }

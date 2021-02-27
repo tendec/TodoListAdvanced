@@ -10,15 +10,16 @@ function checkAuthentication() {
     }
 }
 
-function checkUserName() {
-    let userName = dataManager.state.users.map(function (User) {
+function checkUserNameExisted() {
+    let userNames = dataManager.state.users.map(function (User) {
         return User.username;
     });
-    let valueUserName = document.getElementById("username-register");
-    if (userName.includes(valueUserName.value)) {
-        valueUserName.classList.add("invalid");
+    let userName = document.getElementById("username-register");
+    if (userNames.includes(userName.value)) {
+        userName.classList.add("invalid");
+        alert("UserName existed!");
     } else {
-        valueUserName.classList.remove("invalid");
+        userName.classList.remove("invalid");
     }
 }
 

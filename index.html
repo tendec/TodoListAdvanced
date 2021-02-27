@@ -19,11 +19,11 @@
             <div class="user-info">
                 <div id="user-info-name">
                     <label for="user-name">User Name:</label>
-                    <input type="text" class="user-name" required>
+                    <input type="text" class="user-name" id="username-login" required>
                 </div>
                 <div class="user-info-password">
                     <label for="user-password">Password:</label>
-                    <input type="password" class="user-password" minlength="8" required>
+                    <input type="password" class="user-password" id="password-login" minlength="8" required>
                     <i class="fas fa-eye"></i>
                     <i class="fas fa-eye-slash"></i>
                 </div>
@@ -35,7 +35,8 @@
             <div class="user-info">
                 <div id="user-info-name">
                     <label for="user-name">User Name:</label>
-                    <input type="text" class="user-name" id="username-register" required autocomplete="off" onkeyup="checkUserName()">
+                    <input type="text" class="user-name" id="username-register" required autocomplete="off"
+                        onblur="checkUserNameExisted()">
                 </div>
                 <div class="user-info-password">
                     <label for="user-password">Password:</label>
@@ -55,13 +56,13 @@
         </div>
         <div id="main">
             <button id="btn-addCard" class="btn"><i class="fas fa-plus"></i></button>
-            <div id="user-cards-title">
-                TITLE
-            </div>
-            <div id="user-cards-todos">
-                <li>TODO1</li>
-                <li>TODO2</li>
-                <li>TODO3</li>
+            <div class="cards">
+                <input type="text" class="card-title" value="TITLE">
+                <ul class="card-todos">
+                    <li>TODO1</li>
+                    <li>TODO2</li>
+                    <li>TODO3</li>
+                </ul>
             </div>
             <input type="submit" value="Log Out" id="btn-logout">
         </div>
