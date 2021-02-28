@@ -57,22 +57,21 @@
         <div id="main">
             <button id="btn-addCard" class="btn"><i class="fas fa-plus"></i></button>
             <div class="cards">
-                <input type="text" class="card-title" value="TITLE">
-                <ul class="card-todos">
-                    <li>TODO1</li>
-                    <li>TODO2</li>
-                    <li>TODO3</li>
-                </ul>
+                <input type="text" class="card-title" value="Title Card ">
+                <ul id="card-todos"></ul>
+                <input type="text" id="addTodo-field" value="Add todo item">
+                <button id="btn-addTodo"><i class="fas fa-plus"></i></button>
             </div>
             <input type="submit" value="Log Out" id="btn-logout">
         </div>
     </div>
 
     <script type="text/javascript" src="dataManager.js"></script>
-    <script type="text/javascript" src="AuthenticationManager.js"></script>
+    <script type="text/javascript" src="authenticationManager.js"></script>
     <script type="text/javascript" src="UIManager.js"></script>
     <script type="text/javascript" src="login.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="cards.js"></script>
 
 </body>
 
