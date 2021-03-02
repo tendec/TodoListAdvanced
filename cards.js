@@ -1,8 +1,9 @@
 let todoStorageArr = [];
 let colorStorageArr = [];
-let btnAddTodoItem = document.getElementById("btn-addTodo");
-btnAddTodoItem.onclick = function () {
-    let inputElement = document.getElementById("addTodo-field");
+
+let btnAddTodoItem = document.getElementById("btn-addTodo0");
+btnAddTodoItem.addEventListener("click", function () {
+    let inputElement = document.getElementById("addTodo-field0");
     if (todoStorageArr.length == 5) {
         alert("Please complete the others first!");
         inputElement.value = "";
@@ -18,9 +19,51 @@ btnAddTodoItem.onclick = function () {
             setPriority();
         }
     }
-}
+});
 
-let sub = document.getElementById("addTodo-field");
+let btnAddCardItem = document.getElementById("btn-addCard");
+btnAddCardItem.addEventListener("click", function () {
+    let clickedCount = 2;
+    let i = 1;
+    while (i < clickedCount) {
+        let newDivCard = document.createElement("div");
+        newDivCard.classList.add("card");
+        newDivCard.setAttribute("id", "card" + i);
+        let newInputTitle = document.createElement("input");
+        newInputTitle.classList.add("card-title");
+        newInputTitle.setAttribute("type", "text");
+        newInputTitle.setAttribute("id", "card-title" + i);
+        newInputTitle.setAttribute("placeholder", "Title Card");
+        newInputTitle.setAttribute("onblur", "unfocusField(this)");
+        let newUl = document.createElement("ul");
+        newUl.setAttribute("id", "card-todos" + i);
+        let newDivField = document.createElement("div");
+        newDivField.classList.add("fieldAddTodo");
+        newDivField.setAttribute("id", "fieldAddTodo" + i);
+        let newInputField = document.createElement("input");
+        newInputField.classList.add("todoField");
+        newInputField.setAttribute("type", "text");
+        newInputField.setAttribute("id", "addTodo-field" + i);
+        newInputField.setAttribute("placeholder", "Todo item");
+        let newBtn = document.createElement("button");
+        newBtn.classList.add("btnAdd");
+        newBtn.setAttribute("id", "btn-addTodo" + i);
+        let newPlus = document.createElement("i");
+        newPlus.classList.add("fas", "fa-plus");
+        document.getElementById("cards").appendChild(newDivCard);
+        document.getElementById("card" + i).appendChild(newInputTitle);
+        document.getElementById("card" + i).appendChild(newUl);
+        document.getElementById("card" + i).appendChild(newDivField);
+        document.getElementById("fieldAddTodo" + i).appendChild(newInputField);
+        document.getElementById("fieldAddTodo" + i).appendChild(newBtn);
+        document.getElementById("btn-addTodo" + i).appendChild(newPlus);
+        break;
+    }
+    clickedCount++;
+    i++;
+});
+
+let sub = document.getElementById("addTodo-field0");
 sub.addEventListener("keyup", function (event) {
     if (event.key == "Enter") {
         event.preventDefault();
@@ -43,16 +86,15 @@ window.onload = function () {
     setPriority();
 }
 
-function createCardItem() {
-
-}
-
 function createTodoItem(value) {
-    document.getElementById("card-todos").innerHTML +=
-        "<li><i class='fas fa-check' onclick='onCheckboxClick(this)'></i>" +
-        "<span class='todoItems'>" + value + "</span>" +
-        "<button class='btnPriority highBtn'>High</button><button class='btnPriority mediumBtn'>Medium</button><button class='btnPriority lowBtn'>Low</button>" +
-        "</li>";
+    document.getElementById("card-todos0").innerHTML +=
+        `<li>
+            <i class='fas fa-check' onclick='onCheckboxClick(this)'></i> 
+            <span class='todoItems'>` + value + `</span>
+            <button class='btnPriority highBtn'>High</button>
+            <button class='btnPriority mediumBtn'>Medium</button>
+            <button class='btnPriority lowBtn'>Low</button>
+        </li>`
 }
 
 let green = document.getElementsByClassName("lowBtn");
@@ -107,7 +149,7 @@ function onCheckboxClick(element) {
 }
 
 function deleteElement(element) {
-    container = document.querySelector("#card-todos");
+    container = document.querySelector("#card-todos0");
     container.removeChild(element);
 }
 
@@ -131,5 +173,6 @@ function loadData() {
 function unfocusField(element) {
     if (element.value !== "") {
         element.style.border = "none";
+        element.style.background = "rgb(221, 221, 221)";
     }
 }

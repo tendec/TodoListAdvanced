@@ -19,6 +19,10 @@ function setOnClickEventsOnLoginPage() {
                 dataManager.setCurrentUser(dataManager.state.users[userNames.indexOf(userName.value)]);
                 UIManager.goto(UI.MAIN);
                 dataManager.saveData();
+                userName.value = "";
+                password.value = "";
+                userName.classList.remove("invalid");
+                password.classList.remove("invalid");
             } else {
                 userName.classList.add("invalid");
                 password.classList.add("invalid");
@@ -30,7 +34,17 @@ function setOnClickEventsOnLoginPage() {
             alert("UserName or Password incorrect!");
         }
     }
+    password.addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            loginBtn.click();
+        }
+    })
     registerBtn.onclick = function () {
+        userName.value = "";
+        password.value = "";
+        userName.classList.remove("invalid");
+        password.classList.remove("invalid");
         UIManager.goto(UI.REGISTER);
     }
 }

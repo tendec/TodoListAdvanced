@@ -19,13 +19,12 @@
             <div class="user-info">
                 <div id="user-info-name">
                     <label for="user-name">User Name:</label>
-                    <input type="text" class="user-name" id="username-login" required>
+                    <input type="text" class="user-name" id="username-login" required autocomplete="off">
                 </div>
                 <div class="user-info-password">
                     <label for="user-password">Password:</label>
                     <input type="password" class="user-password" id="password-login" minlength="8" required>
-                    <i class="fas fa-eye"></i>
-                    <i class="fas fa-eye-slash"></i>
+                    <i class="fas fa-eye" id="eye-login"></i>
                 </div>
                 <input type="submit" value="Log In" id="btn-login">
                 <input type="submit" value="Register" id="btn-register">
@@ -41,14 +40,12 @@
                 <div class="user-info-password">
                     <label for="user-password">Password:</label>
                     <input type="password" class="user-password" id="password-register" minlength="8" required>
-                    <i class="fas fa-eye"></i>
-                    <i class="fas fa-eye-slash"></i>
+                    <i class="fas fa-eye" id="eyeP-register"></i>
                 </div>
                 <div class="user-info-confirm_password">
                     <label for="user-password">Confirm Password:</label>
                     <input type="password" class="user-password" id="cfpassword-register" minlength="8" required>
-                    <i class="fas fa-eye eyecfpass"></i>
-                    <i class="fas fa-eye-slash eyecfpass"></i>
+                    <i class="fas fa-eye eyeCfPass" id="eyeCfP-register"></i>
                 </div>
                 <input type="submit" value="Back" id="btn-back-register">
                 <input type="submit" value="Submit" id="btn-submit-register">
@@ -57,20 +54,12 @@
         <div id="main">
             <button id="btn-addCard" class="btn"><i class="fas fa-plus"></i></button>
             <div id="cards">
-                <div class="card">
-                    <input type="text" class="card-title" placeholder="Title Card" onblur="unfocusField(this)">
-                    <ul id="card-todos"></ul>
-                    <div class="fieldAddTodo">
-                        <input type="text" id="addTodo-field" placeholder="Todo item">
-                        <button id="btn-addTodo"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <input type="text" class="card-title" placeholder="Title Card" onblur="unfocusField(this)">
-                    <ul id="card-todos"></ul>
-                    <div class="fieldAddTodo">
-                        <input type="text" id="addTodo-field" placeholder="Todo item">
-                        <button id="btn-addTodo"><i class="fas fa-plus"></i></button>
+                <div class="card" id="card0">
+                    <input type="text" class="card-title" id="card-title0" placeholder="Title Card" onblur="unfocusField(this)">
+                    <ul id="card-todos0"></ul>
+                    <div class="fieldAddTodo" id="fieldAddTodo0">
+                        <input type="text" class="todoField" id="addTodo-field0" placeholder="Todo item">
+                        <button class="btnAdd" id="btn-addTodo0"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>

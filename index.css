@@ -1,10 +1,11 @@
 body {
     text-align: center;
+    background-color: rgb(221, 221, 221);
 }
 
 #container {
     margin: 0 auto;
-    width: 600px;
+    width: 960px;
 }
 
 #title {
@@ -62,15 +63,9 @@ input[type="submit"] {
     top: 40px;
 }
 
-.fa-eye-slash {
+.eyeCfPass {
     position: absolute;
-    right: 40px;
-    top: 40px;
-}
-
-.eyecfpass {
-    position: absolute;
-    right: 230px;
+    right: 315px;
     top: 290px;
 }
 
@@ -84,10 +79,12 @@ input[type="submit"] {
 #cards {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .card {
-    border: 1px solid black;
+    border: 1px solid black;    
     border-radius: 10px;
     width: 250px;
     height: 300px;
@@ -97,7 +94,7 @@ input[type="submit"] {
 
 #btn-logout {
     position: relative;
-    top: 120px;
+    top: 100px;
 }
 
 .card-title {
@@ -120,7 +117,7 @@ ul {
     position: relative;
 }
 
-#addTodo-field {
+.todoField {
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
@@ -128,7 +125,7 @@ ul {
     right: 45px;
 }
 
-#btn-addTodo {
+.btnAdd {
     background: none;
     border: none;
     font-size: 15px;
@@ -178,7 +175,7 @@ li:hover .btnPriority {
 }
 
 .btnPriority {
-    background-color: rgb(193, 234, 248);
+    background-color: rgb(235, 248, 252);
     font-weight: bold;
     border-radius: 25%;
     font-size: 10px;
@@ -257,7 +254,7 @@ li:hover .btnPriority {
 }
 
 button.btnPriority:hover {
-    color: rgb(58, 255, 255);
+    color: rgb(85, 180, 180);
     cursor: pointer;
     background-color: rgb(106, 233, 233);
 }

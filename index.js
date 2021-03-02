@@ -1,6 +1,7 @@
 window.onload = dataManager.loadData();
 
 checkAuthentication();
+passwordEye();
 
 function checkAuthentication() {
     if (authenticationManager.checkAuthentication() == false) {
@@ -23,10 +24,21 @@ function checkUserNameExisted() {
     }
 }
 
-// function passwordEye() {
-//     let eyeShow = document.getElementsByClassName("fa-eye");
-//     let eyeHide = document.getElementsByClassName("fa-eye-slash");
-//     eyeShow.onclick = function () {
-//         document.getElementById("")
-//     }
-// }
+function passwordEye() {
+    let eyeLogin = document.getElementById("eye-login");
+    eyeLogin.onclick = function () {
+        let type = document.getElementById("password-login").getAttribute("type") === "password" ? "text" : "password";
+        document.getElementById("password-login").setAttribute("type", type);
+        this.classList.toggle("fa-eye-slash");
+    }
+    let eyeRegisterp = document.getElementById("eyeP-register");
+    let eyeRegistercfp = document.getElementById("eyeCfP-register");
+    eyeRegisterp.onclick = function () {
+        let typep = document.getElementById("password-register").getAttribute("type") === "password" ? "text" : "password";
+        let typecfp = document.getElementById("cfpassword-register").getAttribute("type") === "password" ? "text" : "password";
+        document.getElementById("password-register").setAttribute("type", typep);
+        document.getElementById("cfpassword-register").setAttribute("type", typecfp);
+        eyeRegisterp.classList.toggle("fa-eye-slash");
+        eyeRegistercfp.classList.toggle("fa-eye-slash");
+    }
+}
