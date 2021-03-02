@@ -56,11 +56,23 @@
         </div>
         <div id="main">
             <button id="btn-addCard" class="btn"><i class="fas fa-plus"></i></button>
-            <div class="cards">
-                <input type="text" class="card-title" value="Title Card ">
-                <ul id="card-todos"></ul>
-                <input type="text" id="addTodo-field" value="Add todo item">
-                <button id="btn-addTodo"><i class="fas fa-plus"></i></button>
+            <div id="cards">
+                <div class="card">
+                    <input type="text" class="card-title" placeholder="Title Card" onblur="unfocusField(this)">
+                    <ul id="card-todos"></ul>
+                    <div class="fieldAddTodo">
+                        <input type="text" id="addTodo-field" placeholder="Todo item">
+                        <button id="btn-addTodo"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <input type="text" class="card-title" placeholder="Title Card" onblur="unfocusField(this)">
+                    <ul id="card-todos"></ul>
+                    <div class="fieldAddTodo">
+                        <input type="text" id="addTodo-field" placeholder="Todo item">
+                        <button id="btn-addTodo"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
             </div>
             <input type="submit" value="Log Out" id="btn-logout">
         </div>
