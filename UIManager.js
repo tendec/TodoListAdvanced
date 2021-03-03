@@ -13,5 +13,8 @@ const UIManager = {
     goto: function (name) {
         dataManager.state.currentUI = name;
         this.updateUI();
+        if (name == UI.MAIN) {
+            cardManager.render();
+        }
     }
 }

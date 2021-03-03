@@ -1,7 +1,9 @@
-window.onload = dataManager.loadData();
+cardManager.elementContainer = document.getElementById("cards");
+dataManager.loadData();
 
 checkAuthentication();
 passwordEye();
+
 
 function checkAuthentication() {
     if (authenticationManager.checkAuthentication() == false) {
