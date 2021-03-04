@@ -1,5 +1,7 @@
 const cardManager = {
+
     elementContainer: null,
+
     render: function () {
         this.elementContainer.innerHTML = "";
         let cards = dataManager.state.currentUser.cards;
@@ -7,12 +9,15 @@ const cardManager = {
             this.elementContainer.appendChild(cards[i].generateHTMLElement());
         }
     },
+
     setContainer: function (element) {
         this.elementContainer = element;
     },
+
     addNewCard: function () {
-        this.addCard("New Card", []);
+        this.addCard("", []);
     },
+    
     addCard: function (title, todos) {
         dataManager.addCard(title, todos);
         this.render();

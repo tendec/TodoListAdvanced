@@ -4,6 +4,7 @@ class TodoItem {
         this.content = content;
         this.color = color;
         this.element = null;
+        this.code = Date.now();
     }
 
     generateHTMLElement() {
@@ -15,6 +16,7 @@ class TodoItem {
 
         let span = document.createElement("span");
         span.classList.add("todoItems");
+        span.setAttribute("code", this.code);
         span.innerText = this.content;
         span.style.color = this.color;
 

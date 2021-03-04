@@ -5,11 +5,13 @@ const UI = {
 }
 
 const dataManager = {
+
     state: {
         users: [],
         currentUser: null,
         currentUI: "login",
     },
+
     loadData: function () {
         const str = localStorage.getItem("masterData");
         if (str != null) {
@@ -26,24 +28,27 @@ const dataManager = {
                 }
             }
         }
-
     },
+
     saveData: function () {
         localStorage.setItem("masterData", JSON.stringify(this.state));
     },
+
     addUser: function (username, password, card) {
         let user = new User(username, password, card);
         this.state.users.push(user);
         this.saveData();
         return user;
     },
+
     setCurrentUser: function (user) {
         this.state.currentUser = user;
     },
+
     addCard: function (title, array) {
         let card = new Card(title, array);
         this.state.currentUser.addCard(card);
         this.saveData();
         return card;
-    }
+    },
 }

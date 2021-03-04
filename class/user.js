@@ -1,4 +1,5 @@
 class User {
+
     constructor(username, password, cards) {
         this.username = username;
         this.password = password;
@@ -11,9 +12,11 @@ class User {
             }
         }
     }
+
     addCard(card) {
         this.cards.push(card);
     }
+
     isUser(username, password) {
         if (username == this.username && password == this.password) {
             return true;

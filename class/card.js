@@ -4,6 +4,7 @@ class Card {
         this.title = title;
         this.todos = array;
         this.element = null;
+        this.code = Date.now();
     }
 
     generateHTMLElement() {
@@ -15,12 +16,15 @@ class Card {
         title.setAttribute("type", "text");
         title.setAttribute("placeholder", "Title Card");
         title.setAttribute("onblur", "unfocusField(this)");
+        title.setAttribute("onchange", "updateDataTitle(this)");
+        title.setAttribute("code", this.code);
         title.value = this.title;
 
         let todoList = document.createElement("ul");
+        todoList.classList.add("todoList");
         for (let i = 0; i < this.todos.length; i++) {
             let data = this.todos[i];
-            let todoItem = new TodoItem (data.content, data.color);
+            let todoItem = new TodoItem(data.content, data.color);
             todoList.appendChild(todoItem.generateHTMLElement());
         }
 
@@ -28,6 +32,8 @@ class Card {
         input.classList.add("todoField");
         input.setAttribute("type", "text");
         input.setAttribute("placeholder", "Todo item...");
+        input.setAttribute("onchange", "updateDataTodo(this)");
+        input.setAttribute("code", this.code);
 
         let tick = document.createElement("input");
         tick.classList.add("deleteCard");
