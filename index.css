@@ -37,6 +37,10 @@ label {
     position: relative;
 }
 
+.user-info-confirm_password {
+    position: relative;
+}
+
 .user-password {
     margin: 5px;
     padding: 5px;
@@ -65,8 +69,8 @@ input[type="submit"] {
 
 .eyeCfPass {
     position: absolute;
-    right: 180px;
-    top: 290px;
+    right: 40px;
+    top: 40px;
 }
 
 .btn {
@@ -90,6 +94,8 @@ input[type="submit"] {
     height: 100%;
     margin: auto;
     margin-top: 10px;
+    margin-bottom: 40px;
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -101,6 +107,17 @@ input[type="submit"] {
 
 .card ul {
     height: 200px;
+}
+
+.deleteCard {
+    position: absolute;
+    bottom: -30px;
+    left: 115px;
+}
+
+#btn-deleteAll {
+    position: relative;
+    top: 100px;
 }
 
 #btn-logout {

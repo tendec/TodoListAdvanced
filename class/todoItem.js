@@ -11,7 +11,7 @@ class TodoItem {
 
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
-        input.setAttribute("onclick", "onCheckboxClick(this)");
+        input.setAttribute("onclick", "deleteTodoItem(this)");
 
         let span = document.createElement("span");
         span.classList.add("todoItems");

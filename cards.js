@@ -128,7 +128,7 @@ function setPriority() {
     }
 }
 
-function onCheckboxClick(element) {
+function deleteTodoItem(element) {
     const content = element.parentNode.querySelector(".todoItems").innerText;
     for (let i = 0; i < todoStorageArr.length; i++) {
         if (todoStorageArr[i] == content) {

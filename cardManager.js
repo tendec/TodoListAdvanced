@@ -1,6 +1,5 @@
 const cardManager = {
     elementContainer: null,
-
     render: function () {
         this.elementContainer.innerHTML = "";
         let cards = dataManager.state.currentUser.cards;

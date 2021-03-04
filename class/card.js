@@ -29,9 +29,15 @@ class Card {
         input.setAttribute("type", "text");
         input.setAttribute("placeholder", "Todo item...");
 
+        let tick = document.createElement("input");
+        tick.classList.add("deleteCard");
+        tick.setAttribute("type", "checkbox");
+        tick.setAttribute("onclick", "deleteCard(this)");
+
         card.appendChild(title);
         card.appendChild(todoList);
         card.appendChild(input);
+        card.appendChild(tick);
 
         this.element = card;
         return card;
