@@ -15,13 +15,13 @@ class Card {
         title.classList.add("card-title");
         title.setAttribute("type", "text");
         title.setAttribute("placeholder", "Title Card");
-        title.setAttribute("onblur", "unfocusField(this)");
         title.setAttribute("onchange", "updateDataTitle(this)");
         title.setAttribute("code", this.code);
         title.value = this.title;
 
         let todoList = document.createElement("ul");
         todoList.classList.add("todoList");
+        todoList.setAttribute("code", this.code);
         for (let i = 0; i < this.todos.length; i++) {
             let data = this.todos[i];
             let todoItem = new TodoItem(data.content, data.color);

@@ -16,20 +16,22 @@ class TodoItem {
 
         let span = document.createElement("span");
         span.classList.add("todoItems");
-        span.setAttribute("code", this.code);
         span.innerText = this.content;
         span.style.color = this.color;
 
         let highBtn = document.createElement("button");
-        highBtn.classList.add("btnPriority", "highBtn")
+        highBtn.classList.add("btnPriority", "highBtn");
+        highBtn.setAttribute("onclick", "setPriority(this)");
         highBtn.innerText = "High";
 
         let mediumBtn = document.createElement("button");
         mediumBtn.classList.add("btnPriority", "mediumBtn");
+        mediumBtn.setAttribute("onclick", "setPriority(this)");
         mediumBtn.innerText = "Medium";
 
         let lowBtn = document.createElement("button");
         lowBtn.classList.add("btnPriority", "lowBtn");
+        lowBtn.setAttribute("onclick", "setPriority(this)");
         lowBtn.innerText = "Low";
 
         li.appendChild(input);

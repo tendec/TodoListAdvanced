@@ -44,33 +44,3 @@ function passwordEye() {
         eyeRegistercfp.classList.toggle("fa-eye-slash");
     }
 }
-
-function unfocusField(element) {
-    if (element.value !== "") {
-        element.style.border = "none";
-        element.style.background = "rgb(221, 221, 221)";
-    }
-}
-
-function updateDataTitle(element) {
-    let cards = dataManager.state.currentUser.cards;
-    let titleContent = element.value;
-    for (let i = 0; i < cards.length; i++) {
-        if (cards[i].code == element.getAttribute("code")) {
-            cards[i].title = titleContent;
-            dataManager.saveData();
-        }
-    }
-}
-
-function updateDataTodo(element) {
-    let cards = dataManager.state.currentUser.cards;
-    let todoContent = element.value;
-    for (let i = 0; i < cards.length; i++) {
-        if (cards[i].code == element.getAttribute("code")) {
-            cards[i].todos.push(todoContent);
-            dataManager.saveData();
-            cardManager.render();
-        }
-    }
-}
