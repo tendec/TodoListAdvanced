@@ -15,53 +15,52 @@
         <div class="deco" id="deco1"></div>
         <div class="deco" id="deco2"></div>
         <div class="deco" id="deco3"></div>
-        <div id="title">
-            TODO LIST
-        </div>
+        <div id="title">TODO</div>
         <div id="login" style="display: none;">
             <div class="user-info">
-                <div id="title-login">LOGIN</div>
+                <div class="title-page">LOGIN</div>
                 <div id="user-info-name">
-                    <input type="text" class="user-name loginInput" id="username-login" placeholder="Username" required
+                    <input type="text" class="user-name infoInput" id="username-login" placeholder="Username" required
                         autocomplete="off">
                 </div>
                 <div class="user-info-password">
-                    <input type="password" class="user-password loginInput" id="password-login" placeholder="Password"
+                    <input type="password" class="user-password infoInput" id="password-login" placeholder="Password"
                         required autocomplete="off" minlength="8">
                     <i class="fas fa-eye" id="eye-login"></i>
                 </div>
-                <input type="submit" value="Log In" id="btn-login">
+                <input type="submit" value="Log In" class="btnClass" id="btn-login">
                 <input type="submit" value="Create New Account" id="btn-register">
             </div>
         </div>
         <div id="register" style="display: none;">
             <div class="user-info">
+                <div class="title-page">REGISTER</div>
                 <div id="user-info-name">
-                    <label for="user-name">User Name:</label>
-                    <input type="text" class="user-name" id="username-register" required autocomplete="off"
-                        onblur="checkUserNameExisted()">
+                    <input type="text" class="user-name infoInput" id="username-register" placeholder="Username"
+                        required autocomplete="off" onblur="checkUserNameExisted()">
                 </div>
                 <div class="user-info-password">
-                    <label for="user-password">Password:</label>
-                    <input type="password" class="user-password" id="password-register" minlength="8" required>
+                    <input type="password" class="user-password infoInput" id="password-register" placeholder="Password"
+                        required minlength="8" required>
                     <i class="fas fa-eye" id="eyeP-register"></i>
                 </div>
                 <div class="user-info-confirm_password">
-                    <label for="user-password">Confirm Password:</label>
-                    <input type="password" class="user-password" id="cfpassword-register" minlength="8" required>
+                    <input type="password" class="user-password infoInput" id="cfpassword-register"
+                        placeholder="Confirm Password" minlength="8" required>
                     <i class="fas fa-eye eyeCfPass" id="eyeCfP-register"></i>
                 </div>
-                <input type="submit" value="Back" id="btn-back-register">
-                <input type="submit" value="Submit" id="btn-submit-register">
+                <input type="submit" value="Create" class="btnClass" id="btn-submit-register">
+                <input type="submit" value="Back" class="btnClass" id="btn-back-register">
             </div>
         </div>
         <div id="main" style="display: none;">
-            <button id="btn-addCard" class="btn"><i class="fas fa-plus"></i></button>
-            <div id="cards">
+            <div id="info-currentUser">
+                <div id="currentUser-username"></div>
+                <div id="divLogout"><input type="submit" value="Log Out" class="btnClass" id="btn-logout"></div>
             </div>
-            <input type="submit" value="Delete All" id="btn-deleteAll">
-            </br>
-            <input type="submit" value="Log Out" id="btn-logout">
+            <button id="btn-addCard" class="btn"><i class="fas fa-plus"></i></button>
+            <div id="cards"></div>
+            <input type="submit" value="Delete All" class="btnClass" id="btn-deleteAll">
         </div>
     </div>
 

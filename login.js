@@ -21,6 +21,7 @@ function setOnClickEventsOnLoginPage() {
                 password.value = "";
                 userName.classList.remove("invalid");
                 password.classList.remove("invalid");
+                setInfoCurrentUser();
             } else {
                 userName.classList.add("invalid");
                 password.classList.add("invalid");
@@ -32,11 +33,21 @@ function setOnClickEventsOnLoginPage() {
             alert("UserName or Password incorrect!");
         }
     }
+    userName.addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            loginBtn.click();
+        }
+    })
     password.addEventListener("keyup", function (event) {
         if (event.key == "Enter") {
             event.preventDefault();
             loginBtn.click();
         }
+    })
+    password.addEventListener("paste", function (event) {
+        event.preventDefault();
+        alert("Type password!");
     })
     registerBtn.onclick = function () {
         userName.value = "";

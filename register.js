@@ -16,7 +16,7 @@ function setOnClickEventsOnRegisterPage() {
         confirmPassword.value = "";
     }
     submitBtn.onclick = function () {
-        if (confirmPassword.value != password.value) {
+        if (confirmPassword.value !== password.value) {
             confirmPassword.classList.add("invalid");
             alert("Password not match");
         } else if (userName.value == "" || password.value == "") {
@@ -35,6 +35,33 @@ function setOnClickEventsOnRegisterPage() {
             password.value = "";
             confirmPassword.value = "";
             UIManager.goto(UI.MAIN);
+            setInfoCurrentUser();
         }
     }
+    userName.addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            submitBtn.click();
+        }
+    })
+    password.addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            submitBtn.click();
+        }
+    })
+    password.addEventListener("paste", function (event) {
+        event.preventDefault();
+        alert("Type password!");
+    })
+    confirmPassword.addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            submitBtn.click();
+        }
+    })
+    confirmPassword.addEventListener("paste", function (event) {
+        event.preventDefault();
+        alert("Type password!");
+    })
 }

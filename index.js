@@ -2,8 +2,16 @@ cardManager.elementContainer = document.getElementById("cards");
 dataManager.loadData();
 
 checkAuthentication();
+setInfoCurrentUser();
 passwordEye();
 
+
+function setInfoCurrentUser() {
+    let infoCur = dataManager.state.currentUser;
+    if (infoCur !== null) {
+        document.getElementById("currentUser-username").innerHTML = "User : " + infoCur.username;
+    }
+}
 
 function checkAuthentication() {
     if (authenticationManager.checkAuthentication() == false) {
