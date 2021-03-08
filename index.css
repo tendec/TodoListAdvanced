@@ -1,18 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 body {
     text-align: center;
     background-color: rgb(221, 221, 221);
+    font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(to bottom right, rgb(245, 255, 255), rgb(72, 204, 248));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #container {
     margin: 0 auto;
-    width: 960px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.deco {
+    border: none;
+}
+
+#deco1 {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    right: -100px;
+    top: 0px;
+    transform: rotate(45deg);
+    border-radius: 50px;
+    background-image: linear-gradient(to left, rgb(198, 252, 252), rgb(79, 209, 252));
+    box-shadow: 10px 10px 10px 1px rgb(61, 223, 223);
+}
+
+#deco2 {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: -170px;
+    top: -170px;
+    border-radius: 50%;
+    background-image: linear-gradient(to left, rgb(190, 250, 250), rgb(93, 211, 250));
+    box-shadow: 10px 0px 10px 1px rgb(61, 223, 223);
+}
+
+#deco3 {
+    width: 700px;
+    height: 50px;
+    position: absolute;
+    bottom: -20px;
+    left: 300px;
+    border-radius: 20px;
+    background-image: linear-gradient(to left, rgb(198, 252, 252), rgb(50, 192, 240));
+    box-shadow: -5px -5px 10px 1px rgb(61, 223, 223);
 }
 
 #title {
     padding: 20px;
     font-size: 50px;
     font-weight: bold;
-    text-shadow: 2px 2px cyan;
+    text-shadow: 3px 3px 5px rgb(35, 171, 216);
+    letter-spacing: 10px;
+    margin: 30px;
 }
 
 label {
@@ -22,9 +71,68 @@ label {
 }
 
 .user-info {
+    box-shadow: 10px 10px 30px 10px rgb(81, 231, 231);
+    background-color: rgb(205, 247, 247);
+    border-radius: 20px;
     margin: 0 auto;
     width: 300px;
-    height: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#title-login {
+    padding: 20px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+#eye-login {
+    top: 18px;
+    color: rgb(114, 215, 248);
+}
+
+#eye-login:hover {
+    color: rgb(0, 136, 182);
+}
+
+#btn-login {
+    background-color: rgb(182, 234, 252);
+    border: 1px solid rgb(146, 223, 248);
+    width: 100px;
+    height: 30px;
+    align-self: center;
+}
+
+#btn-login:hover {
+    border: 1px solid rgb(60, 201, 248);
+    background-image: linear-gradient(to bottom right, rgb(198, 252, 252), rgb(28, 192, 247));
+    font-weight: bold;
+}
+
+#btn-login:focus {
+    outline: none;
+    font-weight: bold;
+}
+
+#btn-register {
+    background: none;
+    border: none;
+    align-self: center;
+    position: absolute;
+    bottom: 10px;
+    padding-bottom: 0px;
+}
+
+#btn-register:hover {
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    width: 170px;
 }
 
 .user-name {
@@ -48,16 +156,36 @@ label {
     width: 230px;
 }
 
+.loginInput {
+    padding: 7px;
+    padding-left: 10px;
+    margin: 10px;
+    background-color: rgb(182, 234, 252);
+    border: 1px solid rgb(146, 223, 248);
+}
+
+.loginInput:hover {
+    font-weight: bold;
+    border: 1px solid rgb(60, 201, 248);
+    /* background-image: linear-gradient(to bottom right, rgb(198, 252, 252), rgb(78, 205, 247)); */
+}
+
+.loginInput:focus {
+    outline: none;
+}
+
 .invalid {
     border: 1px solid red;
     background-color: lightcoral;
 }
 
-input[type="submit"] {
-    background-color: white;
-    margin: 5px;
-    padding: 5px;
+input {
+    font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
+}
+
+input[type="submit"] {
+    margin: 5px;
     cursor: pointer;
 }
 
@@ -88,7 +216,7 @@ input[type="submit"] {
 }
 
 .card {
-    border: 1px solid black;    
+    border: 1px solid black;
     border-radius: 10px;
     width: 250px;
     height: 100%;
@@ -98,6 +226,7 @@ input[type="submit"] {
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .card input[type="text"] {

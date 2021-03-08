@@ -12,22 +12,26 @@
 
 <body>
     <div id="container">
+        <div class="deco" id="deco1"></div>
+        <div class="deco" id="deco2"></div>
+        <div class="deco" id="deco3"></div>
         <div id="title">
             TODO LIST
         </div>
         <div id="login" style="display: none;">
             <div class="user-info">
+                <div id="title-login">LOGIN</div>
                 <div id="user-info-name">
-                    <label for="user-name">User Name:</label>
-                    <input type="text" class="user-name" id="username-login" required autocomplete="off">
+                    <input type="text" class="user-name loginInput" id="username-login" placeholder="Username" required
+                        autocomplete="off">
                 </div>
                 <div class="user-info-password">
-                    <label for="user-password">Password:</label>
-                    <input type="password" class="user-password" id="password-login" minlength="8" required>
+                    <input type="password" class="user-password loginInput" id="password-login" placeholder="Password"
+                        required autocomplete="off" minlength="8">
                     <i class="fas fa-eye" id="eye-login"></i>
                 </div>
                 <input type="submit" value="Log In" id="btn-login">
-                <input type="submit" value="Register" id="btn-register">
+                <input type="submit" value="Create New Account" id="btn-register">
             </div>
         </div>
         <div id="register" style="display: none;">
