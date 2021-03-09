@@ -14,12 +14,13 @@ btnAddNewCardItem.addEventListener("click", function () {
 });
 
 function setPriority(element) {
+    console.log("hi");
     let red = element.parentNode.parentNode.getElementsByClassName("highBtn");
     let yellow = element.parentNode.parentNode.getElementsByClassName("mediumBtn");
     let green = element.parentNode.parentNode.getElementsByClassName("lowBtn");
     for (let i = 0; i < red.length; i++) {
         red[i].onclick = function () {
-            let spanRed = red[i].parentNode.children[1];
+            let spanRed = red[i].parentNode.children[2];
             if (spanRed.classList.contains("yellowIsMedium") || spanRed.classList.contains("greenIsLow")) {
                 spanRed.classList.remove("yellowIsMedium", "greenIsLow");
             };
@@ -30,7 +31,7 @@ function setPriority(element) {
     };
     for (let j = 0; j < yellow.length; j++) {
         yellow[j].onclick = function () {
-            let spanYellow = yellow[j].parentNode.children[1];
+            let spanYellow = yellow[j].parentNode.children[2];
             if (spanYellow.classList.contains("redIsHigh") || spanYellow.classList.contains("greenIsLow")) {
                 spanYellow.classList.remove("redIsHigh", "greenIsLow");
             };
@@ -41,7 +42,7 @@ function setPriority(element) {
     }
     for (let o = 0; o < green.length; o++) {
         green[o].onclick = function () {
-            let spanGreen = green[o].parentNode.children[1];
+            let spanGreen = green[o].parentNode.children[2];
             if (spanGreen.classList.contains("yellowIsMedium") || spanGreen.classList.contains("redIsHigh")) {
                 spanGreen.classList.remove("yellowIsMedium", "redIsHigh");
             };
@@ -97,6 +98,7 @@ function deleteTodoItem(element) {
     let cards = dataManager.state.currentUser.cards;
     let ul = element.parentNode.parentNode;
     let content = element.nextSibling.innerText;
+    console.log("hi");
     ul.removeChild(element.parentNode);
     for (let i = 0; i < cards.length; i++) {
         if (cards[i].code == ul.getAttribute("code")) {

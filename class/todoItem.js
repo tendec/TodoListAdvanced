@@ -10,9 +10,12 @@ class TodoItem {
     generateHTMLElement() {
         let li = document.createElement("li");
 
-        let input = document.createElement("input");
-        input.setAttribute("type", "checkbox");
-        input.setAttribute("onclick", "deleteTodoItem(this)");
+        let tick1 = document.createElement("i");
+        tick1.classList.add("tickTodo", "far", "fa-check-square", "fa-lg");
+
+        let tick2 = document.createElement("i");
+        tick2.classList.add("tickTodoDone", "fas", "fa-check-square", "fa-lg");
+        tick2.setAttribute("onclick", "deleteTodoItem(this)");
 
         let span = document.createElement("span");
         span.classList.add("todoItems");
@@ -22,19 +25,17 @@ class TodoItem {
         let highBtn = document.createElement("button");
         highBtn.classList.add("btnPriority", "highBtn");
         highBtn.setAttribute("onclick", "setPriority(this)");
-        highBtn.innerText = "High";
 
         let mediumBtn = document.createElement("button");
         mediumBtn.classList.add("btnPriority", "mediumBtn");
         mediumBtn.setAttribute("onclick", "setPriority(this)");
-        mediumBtn.innerText = "Medium";
 
         let lowBtn = document.createElement("button");
         lowBtn.classList.add("btnPriority", "lowBtn");
         lowBtn.setAttribute("onclick", "setPriority(this)");
-        lowBtn.innerText = "Low";
 
-        li.appendChild(input);
+        li.appendChild(tick1);
+        li.appendChild(tick2);
         li.appendChild(span);
         li.appendChild(highBtn);
         li.appendChild(mediumBtn);

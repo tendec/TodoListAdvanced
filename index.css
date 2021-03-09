@@ -4,16 +4,15 @@ body {
     background-color: rgb(221, 221, 221);
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(to bottom right, rgb(245, 255, 255), rgb(72, 204, 248));
-    background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: auto;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: visible;
 }
 
 #container {
     margin: 0 auto;
-    width: 100vw;
+    width: 80vw;
     height: 100vh;
 }
 
@@ -62,6 +61,11 @@ body {
     text-shadow: 5px 2px 5px rgb(35, 171, 216);
     letter-spacing: 10px;
     margin: 25px;
+    transition: letter-spacing .5s linear;   
+}
+
+#title:hover {
+    letter-spacing: 30px;
 }
 
 label {
@@ -246,7 +250,7 @@ input[type="submit"] {
     font-weight: bold;
     width: fit-content;
     height: 20px;
-    transition: height .2s linear, background-color .2s linear;
+    transition: height .3s linear, background-color .3s linear;
 }
 
 #info-currentUser:hover {
@@ -256,12 +260,13 @@ input[type="submit"] {
 }
 
 #info-currentUser:hover #divLogout {
-    display: block;
+    transform: scale(1);
 }
 
 #divLogout {
-    display: none;
     margin-top: 20px;
+    transform: scale(0);
+    transition: transform .3s;
 }
 
 .btn {
@@ -289,25 +294,57 @@ input[type="submit"] {
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-.card::-webkit-scrollbar {
-    width: 16px;
+.card:hover .deleteCard {
+    right: 15px;
+    color: rgb(70, 199, 241);
 }
 
-.card::-webkit-scrollbar-track {
+.deleteCard {
+    position: absolute;
+    right: 45px;
+    top: 15px;
+    color: transparent;
+    transform: scale(1);
+    transition: right .2s ease-out, color .2s ease-in, transform .2s;
+}
+
+.deleteCard:hover {
+    transform: scale(0);
+}
+
+.deleteCard:hover + .deleteCardDone {
+    transform: scale(1);
+    color: rgb(11, 223, 223);
+}
+
+.deleteCardDone {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    color: transparent;
+    transform: scale(0);
+    transition: transform .2s, color .3s ease-in;
+}
+
+.card ul::-webkit-scrollbar {
+    width: 10px;
+}
+
+.card ul::-webkit-scrollbar-track {
     background: rgb(140, 243, 243);
     border-radius: 10px;
 }
 
-.card::-webkit-scrollbar-thumb {
+.card ul::-webkit-scrollbar-thumb {
     background: rgb(8, 228, 228);
     border-radius: 10px;
 }
 
-.card::-webkit-scrollbar-thumb:hover {
+.card ul::-webkit-scrollbar-thumb:hover {
     background: rgb(13, 185, 185);
 }
 
@@ -318,11 +355,8 @@ input[type="submit"] {
 
 .card ul {
     height: 222px;
-}
-
-.deleteCard {
-    position: absolute;
-    right: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #btn-deleteAll {
@@ -370,11 +404,36 @@ ul {
     }
 }
 
+.tickTodo {
+    margin-right: 0px;
+    color: rgb(157, 220, 241);
+    transform: scale(1);
+    transition: transform .2s;
+}
+
+.tickTodo:hover {
+    transform: scale(0);
+}
+
+.tickTodo:hover + .tickTodoDone {
+    color: rgb(11, 218, 218);
+    transform: scale(1);
+}
+
+.tickTodoDone {
+    position: relative;
+    right: 17px;
+    color: transparent;
+    transform: scale(0);
+    transition: transform .2s;
+}
+
 li {
     font-size: 15px;
     list-style: none;
-    margin: auto;
+    margin: 10px;
     text-align: left;
+    line-height: 30px;
 }
 
 li:hover .btnPriority {
@@ -382,38 +441,36 @@ li:hover .btnPriority {
 }
 
 .btnPriority {
-    background-color: rgb(235, 248, 252);
     font-weight: bold;
-    border-radius: 25%;
+    border-radius: 50%;
     font-size: 10px;
     text-align: center;
     padding: 0px;
     border: none;
+    width: 10px;
+    height: 10px;
     transform: scale(0);
-    transition: transform 200ms;
+    transition: transform .2s;
 }
 
 .highBtn {
+    background-color: rgb(247, 78, 78);
     margin: 5px;
     margin-left: 10px;
-    width: 30px;
-    height: 30px;
     animation: highBtnAnimation 1s;
     animation-iteration-count: infinite;
 }
 
 .mediumBtn {
+    background-color: rgb(255, 252, 60);
     margin: 5px;
-    width: 50px;
-    height: 30px;
     animation: mediumBtnAnimation 1s;
     animation-iteration-count: infinite;
 }
 
 .lowBtn {
+    background-color: rgb(92, 238, 92);
     margin: 5px;
-    width: 30px;
-    height: 30px;
     animation: lowBtnAnimation 1s;
     animation-iteration-count: infinite;
 }
@@ -461,9 +518,9 @@ li:hover .btnPriority {
 }
 
 button.btnPriority:hover {
-    color: rgb(85, 180, 180);
     cursor: pointer;
-    background-color: rgb(106, 233, 233);
+    width: 15px;
+    height: 15px;
 }
 
 button:focus {
