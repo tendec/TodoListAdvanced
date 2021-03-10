@@ -14,13 +14,12 @@ btnAddNewCardItem.addEventListener("click", function () {
 });
 
 function setPriority(element) {
-    console.log("hi");
-    let red = element.parentNode.parentNode.getElementsByClassName("highBtn");
-    let yellow = element.parentNode.parentNode.getElementsByClassName("mediumBtn");
-    let green = element.parentNode.parentNode.getElementsByClassName("lowBtn");
+    let red = element.parentNode.getElementsByClassName("highBtn");
+    let yellow = element.parentNode.getElementsByClassName("mediumBtn");
+    let green = element.parentNode.getElementsByClassName("lowBtn");
     for (let i = 0; i < red.length; i++) {
         red[i].onclick = function () {
-            let spanRed = red[i].parentNode.children[2];
+            let spanRed = red[i].parentNode.children[1];
             if (spanRed.classList.contains("yellowIsMedium") || spanRed.classList.contains("greenIsLow")) {
                 spanRed.classList.remove("yellowIsMedium", "greenIsLow");
             };
@@ -31,7 +30,7 @@ function setPriority(element) {
     };
     for (let j = 0; j < yellow.length; j++) {
         yellow[j].onclick = function () {
-            let spanYellow = yellow[j].parentNode.children[2];
+            let spanYellow = yellow[j].parentNode.children[1];
             if (spanYellow.classList.contains("redIsHigh") || spanYellow.classList.contains("greenIsLow")) {
                 spanYellow.classList.remove("redIsHigh", "greenIsLow");
             };
@@ -42,7 +41,7 @@ function setPriority(element) {
     }
     for (let o = 0; o < green.length; o++) {
         green[o].onclick = function () {
-            let spanGreen = green[o].parentNode.children[2];
+            let spanGreen = green[o].parentNode.children[1];
             if (spanGreen.classList.contains("yellowIsMedium") || spanGreen.classList.contains("redIsHigh")) {
                 spanGreen.classList.remove("yellowIsMedium", "redIsHigh");
             };
@@ -57,6 +56,11 @@ function updateDataTitle(element) {
     let cards = dataManager.state.currentUser.cards;
     let titleContent = element.value;
     for (let i = 0; i < cards.length; i++) {
+        if (cards[i].title == titleContent) {
+            alert("Title card existed!");
+            element.value = "";
+            break;
+        }
         if (cards[i].code == element.getAttribute("code")) {
             cards[i].title = titleContent;
             dataManager.saveData();
@@ -65,18 +69,28 @@ function updateDataTitle(element) {
 }
 
 function updateDataTodo(element) {
-    let cards = dataManager.state.currentUser.cards;
-    let todoItem = {
-        content: element.value,
-        color: ""
-    }
-    for (let i = 0; i < cards.length; i++) {
-        if (cards[i].code == element.getAttribute("code")) {
-            cards[i].todos.push(todoItem);
-            dataManager.saveData();
-            cardManager.render();
+    element.addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            let cards = dataManager.state.currentUser.cards;
+            let todoItem = {
+                content: element.value,
+                color: ""
+            }
+            for (let i = 0; i < cards.length; i++) {
+                if (cards[i].code == element.getAttribute("code")) {
+                    cards[i].todos.push(todoItem);
+                    dataManager.state.focusElementCode = element.getAttribute("code");
+                    dataManager.saveData();
+                    cardManager.render();
+                    if (dataManager.state.focusElementCode !== null) {
+                        document.querySelector("input[code = \"" + cards[i].code + "\"]").focus();
+                        dataManager.state.focusElementCode = null;
+                    }
+                }
+            }
         }
-    }
+    })
 }
 
 function updateDataColor(element, str) {
@@ -94,12 +108,29 @@ function updateDataColor(element, str) {
     }
 }
 
+function deleteCard(element) {
+    let cards = dataManager.state.currentUser.cards;
+    let titleContent = element.parentNode.querySelector(".card-title").value;
+    if (confirm("Confirm delete this card?")) {
+        for (let i = 0; i < cards.length; i++) {
+            if (cards[i].title == titleContent) {
+                cards.splice(i, 1);
+                let containerCards = document.querySelector("#cards");
+                containerCards.removeChild(element.parentNode);
+                dataManager.saveData();
+            }
+        }
+    }
+}
+
 function deleteTodoItem(element) {
     let cards = dataManager.state.currentUser.cards;
     let ul = element.parentNode.parentNode;
     let content = element.nextSibling.innerText;
-    console.log("hi");
-    ul.removeChild(element.parentNode);
+    element.parentNode.classList.add("deleteLi");
+    setTimeout(function () {
+        ul.removeChild(element.parentNode);
+    }, 300);
     for (let i = 0; i < cards.length; i++) {
         if (cards[i].code == ul.getAttribute("code")) {
             for (let j = 0; j < cards[i].todos.length; j++) {

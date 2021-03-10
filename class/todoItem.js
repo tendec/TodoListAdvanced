@@ -10,12 +10,9 @@ class TodoItem {
     generateHTMLElement() {
         let li = document.createElement("li");
 
-        let tick1 = document.createElement("i");
-        tick1.classList.add("tickTodo", "far", "fa-check-square", "fa-lg");
-
-        let tick2 = document.createElement("i");
-        tick2.classList.add("tickTodoDone", "fas", "fa-check-square", "fa-lg");
-        tick2.setAttribute("onclick", "deleteTodoItem(this)");
+        let check = document.createElement("i");
+        check.classList.add("checkTodo", "fas", "fa-check", "fa-xm");
+        check.setAttribute("onclick", "deleteTodoItem(this)");
 
         let span = document.createElement("span");
         span.classList.add("todoItems");
@@ -34,8 +31,7 @@ class TodoItem {
         lowBtn.classList.add("btnPriority", "lowBtn");
         lowBtn.setAttribute("onclick", "setPriority(this)");
 
-        li.appendChild(tick1);
-        li.appendChild(tick2);
+        li.appendChild(check);
         li.appendChild(span);
         li.appendChild(highBtn);
         li.appendChild(mediumBtn);

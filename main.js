@@ -16,18 +16,3 @@ function setOnClickEventsOnMainPage() {
         }
     }
 }
-
-function deleteCard(element) {
-    let cards = dataManager.state.currentUser.cards;
-    let titleContent = element.parentNode.querySelector(".card-title").value;
-    if (confirm("Confirm delete this card?")) {
-        for (let i = 0; i < cards.length; i++) {
-            if (cards[i].title == titleContent) {
-                cards.splice(i, 1);
-                let containerCards = document.querySelector("#cards");
-                containerCards.removeChild(element.parentNode);
-                dataManager.saveData();
-            }
-        }
-    }
-}

@@ -3,11 +3,10 @@ body {
     text-align: center;
     background-color: rgb(221, 221, 221);
     font-family: 'Montserrat', sans-serif;
-    background-image: linear-gradient(to bottom right, rgb(245, 255, 255), rgb(72, 204, 248));
-    background-position: center;
+    background-image: linear-gradient(to bottom right, rgb(200, 252, 252), rgb(137, 219, 247));
     background-size: auto;
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: auto;
 }
 
 #container {
@@ -47,7 +46,7 @@ body {
     width: 700px;
     height: 50px;
     position: absolute;
-    bottom: -20px;
+    bottom: -55px;
     left: 300px;
     border-radius: 20px;
     background-image: linear-gradient(to left, rgb(198, 252, 252), rgb(50, 192, 240));
@@ -60,8 +59,10 @@ body {
     font-weight: bold;
     text-shadow: 5px 2px 5px rgb(35, 171, 216);
     letter-spacing: 10px;
-    margin: 25px;
-    transition: letter-spacing .5s linear;   
+    width: 300px;
+    margin: 0 auto;
+    margin: 30px auto;
+    transition: letter-spacing .5s linear;
 }
 
 #title:hover {
@@ -106,7 +107,7 @@ label {
 
 .btnClass {
     background-color: rgb(182, 234, 252);
-    border: 1px solid rgb(146, 223, 248);
+    border: 1px solid rgb(110, 219, 255);
     width: 100px;
     height: 30px;
     align-self: center;
@@ -250,7 +251,7 @@ input[type="submit"] {
     font-weight: bold;
     width: fit-content;
     height: 20px;
-    transition: height .3s linear, background-color .3s linear;
+    transition: height .2s linear, background-color .2s linear;
 }
 
 #info-currentUser:hover {
@@ -261,19 +262,26 @@ input[type="submit"] {
 
 #info-currentUser:hover #divLogout {
     transform: scale(1);
+    top: 20px;
 }
 
 #divLogout {
-    margin-top: 20px;
+    position: relative;
+    top: -30px; 
     transform: scale(0);
-    transition: transform .3s;
+    transition: transform .2s, top .2s linear;
 }
 
-.btn {
+#btn-addCard {
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
+    transition: transform .7s;
+}
+
+#btn-addCard:hover {
+    transform: rotateX(360deg);
 }
 
 #cards {
@@ -284,8 +292,11 @@ input[type="submit"] {
 }
 
 .card {
-    border: 1px solid black;
+    background-color: transparent;
+    background-image: transparent;
     border-radius: 10px;
+    border-color: transparent;
+    box-shadow: 10px 10px 100px rgb(81 231 231);
     width: 300px;
     height: 100%;
     margin: auto;
@@ -294,12 +305,36 @@ input[type="submit"] {
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    transition: width .3s linear, background-color .2s, border .2s, background-image 1s;
+}
+
+.card:hover {
+    width: 440px;
+    background-color: rgb(185, 240, 240);
+    border: 1px solid rgb(30, 189, 241);
+    background-image: linear-gradient(to bottom right, rgb(137, 219, 247), rgb(200, 252, 252));;
 }
 
 .card:hover .deleteCard {
-    right: 15px;
-    color: rgb(70, 199, 241);
+    right: 20px;
+    color: rgb(155, 217, 238);
+}
+
+.card:hover .card-title {
+    background-color: rgb(182, 234, 252);
+    border: 1px solid rgb(110, 219, 255);
+}
+
+.card:hover .todoItems {
+    max-width: 360px;
+}
+
+.card:hover .todoField {
+    transform: scale(1);
+}
+
+.card:hover .checkTodo {
+    transform: scale(1);
 }
 
 .deleteCard {
@@ -307,27 +342,17 @@ input[type="submit"] {
     right: 45px;
     top: 15px;
     color: transparent;
-    transform: scale(1);
-    transition: right .2s ease-out, color .2s ease-in, transform .2s;
+    cursor: pointer;
+    transition: right .2s linear;
 }
 
 .deleteCard:hover {
-    transform: scale(0);
+    color: rgb(23, 157, 202) !important;
 }
 
-.deleteCard:hover + .deleteCardDone {
-    transform: scale(1);
-    color: rgb(11, 223, 223);
-}
-
-.deleteCardDone {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
-    color: transparent;
-    transform: scale(0);
-    transition: transform .2s, color .3s ease-in;
+.card ul {
+    height: 222px;
+    overflow-y: auto;
 }
 
 .card ul::-webkit-scrollbar {
@@ -353,15 +378,19 @@ input[type="submit"] {
     align-self: center;
 }
 
-.card ul {
-    height: 222px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+.card input[type="text"]:hover {
+    font-weight: bold;
+    border: 1px solid rgb(60, 201, 248);
+}
+
+.card input[type="text"]:focus {
+    outline: none;
 }
 
 #btn-deleteAll {
     position: relative;
-    top: 30px;
+    top: 20px;
+    margin-bottom: 100px;
 }
 
 .card-title {
@@ -372,6 +401,9 @@ input[type="submit"] {
     padding: 5px;
     font-size: 15px;
     font-weight: bold;
+    background-color: transparent;
+    border: transparent;
+    transition: background-color .4s, border .4s;
 }
 
 ul {
@@ -381,15 +413,19 @@ ul {
 }
 
 .todoField {
+    background-color: rgb(182, 234, 252);
+    border: 1px solid rgb(110, 219, 255);
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     margin-bottom: 5px;
+    transform: scale(0);
+    transition: transform .3s;
 }
 
 .deleteLi {
     animation-name: checked;
-    animation-duration: 0.3s;
+    animation-duration: .3s;
 }
 
 @keyframes checked {
@@ -404,40 +440,38 @@ ul {
     }
 }
 
-.tickTodo {
-    margin-right: 0px;
-    color: rgb(157, 220, 241);
-    transform: scale(1);
-    transition: transform .2s;
-}
-
-.tickTodo:hover {
-    transform: scale(0);
-}
-
-.tickTodo:hover + .tickTodoDone {
-    color: rgb(11, 218, 218);
-    transform: scale(1);
-}
-
-.tickTodoDone {
-    position: relative;
-    right: 17px;
-    color: transparent;
+.checkTodo {
+    color: rgb(155, 217, 238);
+    margin-right: 10px;
+    cursor: pointer;
     transform: scale(0);
     transition: transform .2s;
+}
+
+.checkTodo:hover {
+    color: rgb(23, 157, 202);
 }
 
 li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-size: 15px;
     list-style: none;
-    margin: 10px;
+    margin: 7px;
     text-align: left;
     line-height: 30px;
 }
 
 li:hover .btnPriority {
     transform: scale(1);
+}
+
+.todoItems {
+    max-width: 175px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: max-width .4s linear;
 }
 
 .btnPriority {

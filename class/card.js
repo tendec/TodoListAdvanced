@@ -4,7 +4,7 @@ class Card {
         this.title = title;
         this.todos = array;
         this.element = null;
-        this.code = Date.now();
+        this.code = Math.random();
     }
 
     generateHTMLElement() {
@@ -35,18 +35,14 @@ class Card {
         input.setAttribute("onchange", "updateDataTodo(this)");
         input.setAttribute("code", this.code);
 
-        let tick1 = document.createElement("i");
-        tick1.classList.add("deleteCard", "far", "fa-check-square", "fa-lg");
-
-        let tick2 = document.createElement("i");
-        tick2.classList.add("deleteCardDone", "fas", "fa-check-square", "fa-lg");
-        tick2.setAttribute("onclick", "deleteCard(this)");
-
+        let check = document.createElement("i");
+        check.classList.add("deleteCard", "fas", "fa-check", "fa-xm");
+        check.setAttribute("onclick", "deleteCard(this)");
+        
         card.appendChild(title);
         card.appendChild(todoList);
         card.appendChild(input);
-        card.appendChild(tick1);
-        card.appendChild(tick2)
+        card.appendChild(check);
 
         this.element = card;
         return card;
