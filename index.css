@@ -4,6 +4,7 @@ body {
     background-color: rgb(221, 221, 221);
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(to bottom right, rgb(200, 252, 252), rgb(137, 219, 247));
+    background-repeat: repeat-y;
     background-size: auto;
     overflow-x: hidden;
     overflow-y: auto;
@@ -15,20 +16,20 @@ body {
     height: 100vh;
 }
 
-.deco {
-    border: none;
-}
-
 #deco1 {
     width: 300px;
     height: 300px;
     position: absolute;
     right: -100px;
-    top: 0px;
-    transform: rotate(45deg);
+    top: 40px;
     border-radius: 50px;
     background-image: linear-gradient(to left, rgb(198, 252, 252), rgb(79, 209, 252));
     box-shadow: 10px 10px 10px 1px rgb(61, 223, 223);
+    animation: rotateIn 1s;
+}
+
+#deco1:hover {
+    animation: jello 1s;
 }
 
 #deco2 {
@@ -40,17 +41,27 @@ body {
     border-radius: 50%;
     background-image: linear-gradient(to left, rgb(190, 250, 250), rgb(93, 211, 250));
     box-shadow: 10px 0px 10px 1px rgb(61, 223, 223);
+    animation: bounceInLeft 1s;
+}
+
+#deco2:hover {
+    animation: jello 1s;
 }
 
 #deco3 {
     width: 700px;
     height: 50px;
     position: absolute;
-    bottom: -55px;
+    bottom: -20px;
     left: 300px;
     border-radius: 20px;
-    background-image: linear-gradient(to left, rgb(198, 252, 252), rgb(50, 192, 240));
-    box-shadow: -5px -5px 10px 1px rgb(61, 223, 223);
+    background-image: linear-gradient(to left, rgb(198, 252, 252), rgb(135, 215, 241));
+    box-shadow: 5px 5px 10px 1px rgb(61, 223, 223);
+    animation: lightSpeedInRight 1s;
+}
+
+#deco3:hover {
+    animation: jello 1s;
 }
 
 #title {
@@ -63,16 +74,11 @@ body {
     margin: 0 auto;
     margin: 30px auto;
     transition: letter-spacing .5s linear;
+    animation: tada 1s;
 }
 
 #title:hover {
-    letter-spacing: 30px;
-}
-
-label {
-    display: block;
-    text-align: left;
-    padding: 5px;
+    animation: swing 1s;
 }
 
 .user-info {
@@ -85,6 +91,7 @@ label {
     display: flex;
     flex-direction: column;
     position: relative;
+    animation: bounceIn .7s;
 }
 
 .title-page {
@@ -252,6 +259,7 @@ input[type="submit"] {
     width: fit-content;
     height: 20px;
     transition: height .2s linear, background-color .2s linear;
+    animation: bounceIn 1s;
 }
 
 #info-currentUser:hover {
@@ -267,7 +275,7 @@ input[type="submit"] {
 
 #divLogout {
     position: relative;
-    top: -30px; 
+    top: -30px;
     transform: scale(0);
     transition: transform .2s, top .2s linear;
 }
@@ -278,6 +286,7 @@ input[type="submit"] {
     font-size: 24px;
     cursor: pointer;
     transition: transform .7s;
+    animation: rotateIn 1s;
 }
 
 #btn-addCard:hover {
@@ -289,6 +298,7 @@ input[type="submit"] {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    height: fit-content;
 }
 
 .card {
@@ -305,17 +315,20 @@ input[type="submit"] {
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: width .3s linear, background-color .2s, border .2s, background-image 1s;
+    transition: background-color .5s linear, border .5s linear, background-image 1s linear/* , width .2s */
+    ;
+    /* animation: flipInX 1s; */
 }
 
 .card:hover {
-    width: 440px;
+    /* width: 440px; */
     background-color: rgb(185, 240, 240);
     border: 1px solid rgb(30, 189, 241);
-    background-image: linear-gradient(to bottom right, rgb(137, 219, 247), rgb(200, 252, 252));;
+    background-image: linear-gradient(to bottom right, rgb(115, 214, 247), rgb(163, 253, 253));
+    ;
 }
 
-.card:hover .deleteCard {
+.card:hover .checkCard {
     right: 20px;
     color: rgb(155, 217, 238);
 }
@@ -333,11 +346,11 @@ input[type="submit"] {
     transform: scale(1);
 }
 
-.card:hover .checkTodo {
+/* .card:hover .checkTodo {
     transform: scale(1);
-}
+} */
 
-.deleteCard {
+.checkCard {
     position: absolute;
     right: 45px;
     top: 15px;
@@ -346,7 +359,7 @@ input[type="submit"] {
     transition: right .2s linear;
 }
 
-.deleteCard:hover {
+.checkCard:hover {
     color: rgb(23, 157, 202) !important;
 }
 
@@ -391,6 +404,7 @@ input[type="submit"] {
     position: relative;
     top: 20px;
     margin-bottom: 100px;
+    animation: bounceIn 1s;
 }
 
 .card-title {
@@ -420,32 +434,27 @@ ul {
     padding-left: 10px;
     margin-bottom: 5px;
     transform: scale(0);
-    transition: transform .3s;
+    transition: transform .2s linear;
+}
+
+.todoField:focus {
+    transform: scale(1);
+}
+
+.deleteCard {
+    animation: flipOutX .5s;
 }
 
 .deleteLi {
-    animation-name: checked;
-    animation-duration: .3s;
-}
-
-@keyframes checked {
-    from {
-        opacity: 1
-    }
-    50% {
-        opacity: 0.50
-    }
-    to {
-        opacity: 0
-    }
+    animation: rollOut 1s;
 }
 
 .checkTodo {
-    color: rgb(155, 217, 238);
+    color: rgb(178, 228, 245);
     margin-right: 10px;
     cursor: pointer;
-    transform: scale(0);
-    transition: transform .2s;
+    /* transform: scale(0);
+    transition: transform .2s; */
 }
 
 .checkTodo:hover {

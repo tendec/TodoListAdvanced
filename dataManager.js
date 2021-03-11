@@ -10,7 +10,7 @@ const dataManager = {
         users: [],
         currentUser: null,
         currentUI: "login",
-        focusElementCode: null,
+        focusElementCode1: null,
     },
 
     loadData: function () {

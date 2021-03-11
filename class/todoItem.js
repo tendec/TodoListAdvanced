@@ -4,7 +4,7 @@ class TodoItem {
         this.content = content;
         this.color = color;
         this.element = null;
-        this.code = Date.now();
+        // this.code = Date.now();
     }
 
     generateHTMLElement() {

@@ -10,7 +10,9 @@ btnAddNewCardItem.addEventListener("click", function () {
         alert("New card existed!");
     } else {
         cardManager.addNewCard();
+        cardTitleContent.push("");
     }
+    cardTitle[cardTitle.length - 1].focus();
 });
 
 function setPriority(element) {
@@ -59,9 +61,10 @@ function updateDataTitle(element) {
         if (cards[i].title == titleContent) {
             alert("Title card existed!");
             element.value = "";
+            element.focus();
             break;
         }
-        if (cards[i].code == element.getAttribute("code")) {
+        if (cards[i].code1 == element.getAttribute("code1")) {
             cards[i].title = titleContent;
             dataManager.saveData();
         }
@@ -78,14 +81,24 @@ function updateDataTodo(element) {
                 color: ""
             }
             for (let i = 0; i < cards.length; i++) {
-                if (cards[i].code == element.getAttribute("code")) {
-                    cards[i].todos.push(todoItem);
-                    dataManager.state.focusElementCode = element.getAttribute("code");
-                    dataManager.saveData();
-                    cardManager.render();
-                    if (dataManager.state.focusElementCode !== null) {
-                        document.querySelector("input[code = \"" + cards[i].code + "\"]").focus();
-                        dataManager.state.focusElementCode = null;
+                if (cards[i].code1 == element.getAttribute("code1")) {
+                    let todos = cards[i].todos;
+                    let todosContent = [];
+                    for (let j = 0; j < todos.length; j++) {
+                        todosContent.push(todos[j].content);
+                    }
+                    if (todosContent.includes(element.value)) {
+                        alert("Todo item existed in this card!");
+                        element.value = "";
+                    } else {
+                        cards[i].todos.push(todoItem);
+                        dataManager.state.focusElementCode1 = element.getAttribute("code1");
+                        dataManager.saveData();
+                        cardManager.render();
+                    }
+                    if (dataManager.state.focusElementCode1 !== null) {
+                        document.querySelector("input[code2 = '" + cards[i].code2 + "']").focus();
+                        dataManager.state.focusElementCode1 = null;
                     }
                 }
             }
@@ -97,7 +110,7 @@ function updateDataColor(element, str) {
     let cards = dataManager.state.currentUser.cards;
     let ul = element.parentNode.parentNode;
     for (let i = 0; i < cards.length; i++) {
-        if (cards[i].code == ul.getAttribute("code")) {
+        if (cards[i].code1 == ul.getAttribute("code1")) {
             for (let j = 0; j < cards[i].todos.length; j++) {
                 if (cards[i].todos[j].content == element.innerText) {
                     cards[i].todos[j].color = str;
@@ -108,7 +121,7 @@ function updateDataColor(element, str) {
     }
 }
 
-function deleteCard(element) {
+function checkCard(element) {
     let cards = dataManager.state.currentUser.cards;
     let titleContent = element.parentNode.querySelector(".card-title").value;
     if (confirm("Confirm delete this card?")) {
@@ -116,7 +129,10 @@ function deleteCard(element) {
             if (cards[i].title == titleContent) {
                 cards.splice(i, 1);
                 let containerCards = document.querySelector("#cards");
-                containerCards.removeChild(element.parentNode);
+                element.parentNode.classList.add("deleteCard");
+                setTimeout(function () {
+                    containerCards.removeChild(element.parentNode);
+                }, 300);
                 dataManager.saveData();
             }
         }
@@ -132,7 +148,7 @@ function deleteTodoItem(element) {
         ul.removeChild(element.parentNode);
     }, 300);
     for (let i = 0; i < cards.length; i++) {
-        if (cards[i].code == ul.getAttribute("code")) {
+        if (cards[i].code1 == ul.getAttribute("code1")) {
             for (let j = 0; j < cards[i].todos.length; j++) {
                 if (cards[i].todos[j].content == content) {
                     cards[i].todos.splice(j, 1);
