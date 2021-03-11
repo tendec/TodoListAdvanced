@@ -82,7 +82,7 @@ body {
 }
 
 .user-info {
-    box-shadow: 10px 10px 30px 10px rgb(81, 231, 231);
+    box-shadow: 10px 10px 30px -5px rgb(81, 231, 231);
     background-color: rgb(205, 247, 247);
     border-radius: 20px;
     margin: 0 auto;
@@ -307,7 +307,7 @@ input[type="submit"] {
     backdrop-filter: blur(10px);
     border-radius: 10px;
     border-color: transparent;
-    box-shadow: 10px 10px 100px rgb(81 231 231);
+    box-shadow: 5px 5px 30px -5px rgb(81 231 231);
     width: 300px;
     height: 100%;
     margin: auto;
