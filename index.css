@@ -5,7 +5,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(to bottom right, rgb(200, 252, 252), rgb(137, 219, 247));
     background-repeat: repeat-y;
-    background-size: auto;
+    background-size: cover;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -315,14 +315,10 @@ input[type="submit"] {
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: background-color .5s linear, border .5s linear, background-image 1s linear/* , width .2s */
-    ;
-    /* animation: flipInX 1s; */
+    transition: border .5s linear, background-image 1s linear;
 }
 
 .card:hover {
-    /* width: 440px; */
-    background-color: rgb(185, 240, 240);
     border: 1px solid rgb(30, 189, 241);
     background-image: linear-gradient(to bottom right, rgb(115, 214, 247), rgb(163, 253, 253));
     ;
@@ -345,10 +341,6 @@ input[type="submit"] {
 .card:hover .todoField {
     transform: scale(1);
 }
-
-/* .card:hover .checkTodo {
-    transform: scale(1);
-} */
 
 .checkCard {
     position: absolute;
@@ -453,8 +445,6 @@ ul {
     color: rgb(178, 228, 245);
     margin-right: 10px;
     cursor: pointer;
-    /* transform: scale(0);
-    transition: transform .2s; */
 }
 
 .checkTodo:hover {
