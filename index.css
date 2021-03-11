@@ -304,6 +304,7 @@ input[type="submit"] {
 .card {
     background-color: transparent;
     background-image: transparent;
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     border-color: transparent;
     box-shadow: 10px 10px 100px rgb(81 231 231);
