@@ -12,7 +12,11 @@ function setOnClickEventsOnLoginPage() {
         let passwords = dataManager.state.users.map(function (User) {
             return User.password;
         });
-        if (userNames.includes(userName.value)) {
+        if (userName.value == "" || password.value == "") {
+            alert("Type info!");
+            userName.classList.add("invalid");
+            password.classList.add("invalid");
+        } else if (userNames.includes(userName.value)) {
             if (passwords.includes(password.value)) {
                 dataManager.setCurrentUser(dataManager.state.users[userNames.indexOf(userName.value)]);
                 UIManager.goto(UI.MAIN);
@@ -39,11 +43,19 @@ function setOnClickEventsOnLoginPage() {
             loginBtn.click();
         }
     })
+    userName.addEventListener("input", function () {
+        userName.classList.remove("invalid");
+        password.classList.remove("invalid");
+    })
     password.addEventListener("keyup", function (event) {
         if (event.key == "Enter") {
             event.preventDefault();
             loginBtn.click();
         }
+    })
+    password.addEventListener("input", function () {
+        userName.classList.remove("invalid");
+        password.classList.remove("invalid");
     })
     password.addEventListener("paste", function (event) {
         event.preventDefault();

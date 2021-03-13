@@ -44,11 +44,21 @@ function setOnClickEventsOnRegisterPage() {
             submitBtn.click();
         }
     })
+    userName.addEventListener("input", function () {
+        userName.classList.remove("invalid");
+        password.classList.remove("invalid");
+        confirmPassword.classList.remove("invalid");
+    })
     password.addEventListener("keyup", function (event) {
         if (event.key == "Enter") {
             event.preventDefault();
             submitBtn.click();
         }
+    })
+    password.addEventListener("input", function () {
+        userName.classList.remove("invalid");
+        password.classList.remove("invalid");
+        confirmPassword.classList.remove("invalid");
     })
     password.addEventListener("paste", function (event) {
         event.preventDefault();
@@ -59,6 +69,11 @@ function setOnClickEventsOnRegisterPage() {
             event.preventDefault();
             submitBtn.click();
         }
+    })
+    confirmPassword.addEventListener("input", function () {
+        userName.classList.remove("invalid");
+        password.classList.remove("invalid");
+        confirmPassword.classList.remove("invalid");
     })
     confirmPassword.addEventListener("paste", function (event) {
         event.preventDefault();
